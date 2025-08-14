@@ -53,7 +53,25 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
 
+const themeBtn = document.getElementById("themeToggle");
 
+// Set awal
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.setAttribute("data-theme", "dark");
+  themeBtn.textContent = "☀️";
+}
+
+themeBtn.addEventListener("click", () => {
+  if (document.documentElement.getAttribute("data-theme") === "dark") {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+    themeBtn.textContent = "🌙";
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    themeBtn.textContent = "☀️";
+  }
+});
 
 // custom select variables
 const select = document.querySelector("[data-select]");

@@ -30,11 +30,11 @@
   );
   --bg-gradient-jet: linear-gradient(
     to bottom right, 
-    #0D1B2A 0%, 
-    #0D1B2A 100%
-  ), #1B263B ;
+    hsla(240, 1%, 18%, 0.251) 0%, 
+    hsla(240, 2%, 11%, 0) 100%
+  ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
-    to bottom right, 
+    #90E0EF 0%, 
     #90E0EF 0%, 
     hsla(36, 100%, 69%, 0) 50%
   );
@@ -58,16 +58,18 @@
 
   --jet: hsl(0, 0%, 22%);
   --onyx: hsl(240, 1%, 17%);
-  --eerie-black-1: #1B263B;
-  --eerie-black-2: #1B263B;
-  --smoky-black: #0D1B2A;
-  --white-1: #E0E1DD;
-  --white-2: #E0E1DD;
+  --eerie-black-1: hsl(240, 2%, 13%);
+  --eerie-black-2: hsl(240, 2%, 12%);
+  --smoky-black: hsl(0, 0%, 7%);
+  --white-1: hsl(0, 0%, 100%);
+  --white-2: hsl(0, 0%, 98%);
   --orange-yellow-crayola: #00B4D8;
-  --vegas-gold: #90E0EF;
+  --vegas-gold: #00B4D8;
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
+  --anjay-navbar: hsl(0, 0%, 84%);
   --bittersweet-shimmer: hsl(249.7,100%,55.1%);
+  --bg-navbar: hsla(240, 1%, 17%, 0.75);
 
   /**
    * typography
@@ -104,11 +106,41 @@
 
   /**
    * transition
-   */
+   
 
   --transition-1: 0.25s ease;
-  --transition-2: 0.5s ease-in-out;
+  --transition-2: 0.5s ease-in-out; */
 
+}
+
+[data-theme="dark"] {
+
+  --bg-gradient-jet: linear-gradient(
+    to bottom right, 
+    #dddddd 0%, 
+    #efefef 100%
+  ), #ffffff;
+
+    --border-gradient-onyx: linear-gradient(
+    to bottom right, 
+    #00B4D8 0%, 
+    #efefef 50%
+  );
+
+    --jet: hsl(0, 0%, 22%); /* GARIS TEPI */
+  --onyx: hsl(0, 0%, 82%);
+  --eerie-black-1: white;
+  --eerie-black-2: white;
+  --smoky-black: rgb(236, 236, 236);
+  --white-1: #000000;
+  --white-2: #000000;
+  --orange-yellow-crayola: #00B4D8;
+  --vegas-gold: #90E0EF;
+  --light-gray: hsl(0, 0%, 4%);
+  --light-gray-70: hsla(0, 0%, 0%, 0.7);
+  --bittersweet-shimmer: hsl(249.7,100%,55.1%);
+  --anjay-navbar: #6d6d6d;
+  --bg-navbar: #efefef;
 }
 
 
@@ -457,7 +489,7 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
+  background: var(--bg-navbar);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 0 0 12px 12px;
@@ -475,7 +507,7 @@ main {
 
 .navbar-link {
   position: relative;
-  color: var(--light-gray);
+  color: var(--anjay-navbar);
   font-size: var(--fs-8);
   padding: 20px 7px;
   transition: color var(--transition-1);
@@ -508,6 +540,21 @@ main {
 .navbar-link.active {
   color: var(--orange-yellow-crayola);
 } 
+
+
+
+.theme-btn {
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
 
 
 
